@@ -244,6 +244,7 @@ const Main = () => {
         </div>
         <div>
           <M.TextImg2 src={setFilter}></M.TextImg2>
+<<<<<<< Updated upstream
           <div>
             <M.Button onClick={() => clickHandler(dinosaur)}>
               쥬라기 스쿨
@@ -253,6 +254,19 @@ const Main = () => {
               학교 운동장
             </M.Button>
           </div>
+=======
+        <div>
+          <M.Button onClick={() => clickHandler(lupi)}>
+            잔망루피
+          </M.Button>
+          <M.Button onClick={() => clickHandler(spongibab)}>
+            스폰지밥
+          </M.Button>
+          <M.Button onClick={() => clickHandler(playGroundImg)}>
+            학교 운동장
+          </M.Button>
+        </div>
+>>>>>>> Stashed changes
         </div>
 
         {/* <M.Button onClick={() => resetRAF()}>배경 없애기</M.Button> */}
