@@ -213,6 +213,35 @@ const Main = () => {
           <M.HeaderImg src={logo}></M.HeaderImg>
         </M.Header>
         <div>
+<<<<<<< Updated upstream
+=======
+          <div>
+            <M.TextImg src={setBackground}></M.TextImg>
+            <div>
+              <M.Button onClick={() => clickHandler(dinosaur)}>
+                쥬라기 스쿨 연습
+              </M.Button>
+              <M.Button onClick={() => clickHandler(spongibab)}>
+                스폰지밥
+              </M.Button>
+              <M.Button onClick={() => clickHandler(playGroundImg)}>
+                학교 운동장
+              </M.Button>
+            </div>
+          </div>
+          <div>
+            <div>
+              <M.Button onClick={() => clickHandler(schoolFrontImg)}>
+                학교 기숙사동
+              </M.Button>
+              <M.Button onClick={() => clickHandler(schoolBackImg)}>
+                학교 크로마키
+              </M.Button>
+              <M.Button onClick={() => clickHandler(cb)}>벚꽃</M.Button>
+            </div>
+          </div>
+        </div>
+>>>>>>> Stashed changes
         <div>
           <M.TextImg src={setBackground}></M.TextImg>
           <div>
