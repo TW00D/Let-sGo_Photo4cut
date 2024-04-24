@@ -187,7 +187,7 @@ const Main = () => {
       console.log(webcamRef.current.video.toDataURL("image/jpeg"));
     }
   }
-
+//testcommit
   const videoConstraints = {
     // width: "1000px",
     // height: "720px",
