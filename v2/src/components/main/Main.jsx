@@ -21,6 +21,7 @@ import dinosaur from "../../assets/dinosaur.jpg";
 import cb from "../../assets/cb.jpg";
 import jjanggu from "../../assets/jjanggu1.jpg";
 import spongibab from "../../assets/spongibab.jpg";
+import lupi from "../../assets/lupi.png";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { imageState } from "../../global/image";
@@ -104,27 +105,27 @@ const Main = () => {
     tempCanvas.height = webcam.videoHeight;
     const tempCtx = tempCanvas.getContext("2d");
 
-    // (async function drawMask() {
-    //   requestAnimationFrame(drawMask);
-    //   // tempcanvas에 마스크를 그린다
-    //   const segmentation = await bodypixnet.segmentPerson(webcam);
-    //   const mask = bodyPix.toMask(segmentation);
-    //   tempCtx.putImageData(mask, 0, 0);
+    (async function drawMask() {
+      requestAnimationFrame(drawMask);
+      // tempcanvas에 마스크를 그린다
+      const segmentation = await bodypixnet.segmentPerson(webcam);
+      const mask = bodyPix.toMask(segmentation);
+      tempCtx.putImageData(mask, 0, 0);
 
-    //   // 웹캠을 저장
-    //   originCtx.drawImage(webcam, 0, 0, canvas.width, canvas.height);
-    //   originCtx.save();
-    //   originCtx.globalCompositeOperation = "destination-out";
-    //   originCtx.drawImage(tempCanvas, 0, 0, canvas.width, canvas.height);
-    //   originCtx.restore();
+      // 웹캠을 저장
+      originCtx.drawImage(webcam, 0, 0, canvas.width, canvas.height);
+      originCtx.save();
+      originCtx.globalCompositeOperation = "destination-out";
+      originCtx.drawImage(tempCanvas, 0, 0, canvas.width, canvas.height);
+      originCtx.restore();
 
-    //   // 진짜 ctx를 초기화
-    //   context.clearRect(0, 0, canvas.width, canvas.height);
-    //   if (backImage) {
-    //     context.drawImage(backImage, 0, 0, canvas.width, canvas.height);
-    //   }
-    //   context.drawImage(originCanvas, 0, 0, canvas.width, canvas.height);
-    // })();
+      // 진짜 ctx를 초기화
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      if (backImage) {
+        context.drawImage(backImage, 0, 0, canvas.width, canvas.height);
+      }
+      context.drawImage(originCanvas, 0, 0, canvas.width, canvas.height);
+    })();
     req = requestAnimationFrame(() =>
       drawMask(
         webcam,
@@ -244,7 +245,7 @@ const Main = () => {
         </div>
         <div>
           <M.TextImg2 src={setFilter}></M.TextImg2>
-<<<<<<< Updated upstream
+
           <div>
             <M.Button onClick={() => clickHandler(dinosaur)}>
               쥬라기 스쿨
@@ -254,7 +255,6 @@ const Main = () => {
               학교 운동장
             </M.Button>
           </div>
-=======
         <div>
           <M.Button onClick={() => clickHandler(lupi)}>
             잔망루피
@@ -266,7 +266,6 @@ const Main = () => {
             학교 운동장
           </M.Button>
         </div>
->>>>>>> Stashed changes
         </div>
 
         {/* <M.Button onClick={() => resetRAF()}>배경 없애기</M.Button> */}
