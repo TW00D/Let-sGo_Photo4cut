@@ -324,13 +324,15 @@ export default function Main() {
       //캔버스의 이미지를 파일 객체로 만드는 과정
       let file = new File([blob], "fileName.jpg", { type: "image/png" });
       const formData = new FormData();
-      formData.append("image", file);
+      formData.append("prompt", "best quality, (realistic:1.5), profile, boy, amazing quality, very aesthetic");
+      formData.append("input", file);
       const uploadFile = [file]; //이미지 객체
 
       axios
-        .post("http://10.72.160.85:5000/generate", formData)
+        .post("http://localhost:5000/generate", formData)
         .then((response) => {
           console.log("File uploaded successfully:", response);
+          console.log(response.data)
         })
         .catch((error) => {
           console.error("Error uploading file:", error);
