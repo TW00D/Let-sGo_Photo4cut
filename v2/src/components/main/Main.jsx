@@ -21,7 +21,7 @@ export default function Main() {
   const canvas = document.getElementById("canvas");
   const [CanvasState, setCanvasState] = useState("none"); //사
   const [CameraState, setCameraState] = useState(""); //사
-
+  const [selectedGender, setSelectedGender] = useState("");
   const [isFin, setisFin] = useState(false);
   const [image, setImage] = useRecoilState(imageState);
   useEffect(() => {
@@ -92,6 +92,7 @@ export default function Main() {
       );
       formData.append("input", file);
       const uploadFile = [file]; //이미지 객체
+      setImage((prev) => [...prev, file]);
       axios
         .post("http://localhost:5000/generate", formData)
         .then((response) => {
@@ -125,14 +126,14 @@ export default function Main() {
           autoPlay
           style={{
             display: CameraState,
-            width: "1280px",
+            width: "960px",
             height: "720px",
             webkitTransform: "rotateY(180deg)",
           }}
         />
         <canvas
           id="canvas"
-          width="1280px"
+          width="960px"
           height="720px"
           style={{ display: CanvasState }}
         ></canvas>
@@ -141,11 +142,28 @@ export default function Main() {
         <M.Header>
           <M.HeaderImg src={logo}></M.HeaderImg>
           <M.Title>레츠고 AI네컷</M.Title>
+          <M.Count>{image.length}/4</M.Count>
           <M.ContentWrapper>
             <M.Title>성별</M.Title>
             <div>
-              <M.Button>여성</M.Button>
-              <M.Button>남성</M.Button>
+              {selectedGender === "male" ? (
+                <M.ButtonSelect onClick={() => setSelectedGender("male")}>
+                  남성
+                </M.ButtonSelect>
+              ) : (
+                <M.Button onClick={() => setSelectedGender("male")}>
+                  남성
+                </M.Button>
+              )}
+              {selectedGender === "female" ? (
+                <M.ButtonSelect onClick={() => setSelectedGender("female")}>
+                  여성
+                </M.ButtonSelect>
+              ) : (
+                <M.Button onClick={() => setSelectedGender("female")}>
+                  여성
+                </M.Button>
+              )}
             </div>
           </M.ContentWrapper>
           <M.ContentWrapper>
@@ -176,8 +194,8 @@ export default function Main() {
               borderRadius: "100px",
               position: "absolute",
               zIndex: "101",
-              bottom: "5%",
-              left: "46%",
+              bottom: "12%",
+              left: "32%",
               cursor: "pointer",
               backgroundColor: "white",
             }}
@@ -202,16 +220,24 @@ export default function Main() {
               width: "70px",
               height: "70px",
               margin: "10px",
-              borderRadius: "10px",
+              borderRadius: "100px",
               position: "absolute",
               zIndex: "101",
-              bottom: "5%",
-              left: "46%",
+              bottom: "12%",
+              left: "32%",
               cursor: "pointer",
               backgroundColor: "white",
             }}
           >
-            <p>다시 촬영</p>
+            <div
+              style={{
+                textAlign: "center",
+                width: "60px",
+                height: "60px",
+                border: "2px solid",
+                borderRadius: "100px",
+              }}
+            ></div>
           </div>
         )}
       </M.ButtonWrapper>
