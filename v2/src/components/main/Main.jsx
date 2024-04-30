@@ -97,8 +97,9 @@ export default function Main() {
         .post("http://localhost:5000/generate", formData)
         .then((response) => {
           console.log("File uploaded successfully:", response);
-          console.log(response.data);
-          setImage((prev) => [...prev, response.data]);
+          console.log("generate:", response.data["generate"]);
+          console.log("screenshot:", response.data["screenshot"]);
+          setImage((prev) => [...prev, response.data["generate"]]);
         })
         .catch((error) => {
           console.error("Error uploading file:", error);
