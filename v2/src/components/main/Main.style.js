@@ -35,21 +35,49 @@ export const ButtonWrapper = styled.div`
   align-items: center;
   background-color: white;
 `;
+
+export const ContentWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  align-items: flex-start;
+`;
+
 export const Header = styled.header`
   display: Flex;
   align-items: center;
+  flex-direction: column;
 `;
 export const HeaderImg = styled.img`
   width: 5vw;
 `;
-export const TextImg = styled.img`
-  width: 100px;
+export const Title = styled.h2`
+  background-image: linear-gradient(to right, #db00ff, #455cec);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: 600;
+  font-family: "Pretendard";
+  margin-left: 10px;
 `;
-export const TextImg2 = styled.img`
-  width: 70px;
-`;
-export const Title = styled.h1`
-  color: white;
+
+export const Input = styled.input`
+  margin-left: 10px;
+  height: 50px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  border: 1px solid #bdbdc8;
+  padding-left: 13px;
+
+  &::placeholder {
+    font-size: 16px;
+    font-family: "Pretendard";
+    color: #a6a6a6;
+  }
 `;
 
 export const Button = styled.button`

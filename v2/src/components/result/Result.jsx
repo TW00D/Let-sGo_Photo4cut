@@ -17,7 +17,7 @@ const Result = () => {
   // 기본색은 검정
   const [resultBackColor, setResultBackColor] = useState("black");
   const [resultBackImg, setResultBackImg] = useState();
-  const [comment, setCommnet] = useState("2023년 5월 5일 어린이날");
+  const [comment, setCommnet] = useState("Let's Go에 많은 관심 부탁드립니다");
   //   const [commentOption,setCommentOption] = useState({
   //     color:"white",
   //     bold:false,
@@ -80,9 +80,9 @@ const Result = () => {
         </R.ResultContent>
       </R.ResultWrapper>
       <R.ButtonWrapper>
-      <R.logo src={newLogo}/>
+        <R.logo src={newLogo} />
         <R.BasicBackWrapper>
-        <R.ExplanText src={setColor} />
+          <R.ExplanText src={setColor} />
           <R.BasicBacks>
             {colors.map((i) => (
               <R.BasicBack
@@ -118,7 +118,7 @@ const Result = () => {
         </R.ImgBackWrapper>
 
         <R.CommentWrapper>
-        <R.ExplanText src={setText} />
+          <R.ExplanText src={setText} />
           <input
             type="text"
             value={comment}
@@ -126,7 +126,7 @@ const Result = () => {
           />
         </R.CommentWrapper>
         <R.CommentOptionWrapper>
-        <R.ExplanText src={setOption} />
+          <R.ExplanText src={setOption} />
           <R.CommentOptions>
             <R.CommentOptionColor
               selected={commentColor === "black"}
